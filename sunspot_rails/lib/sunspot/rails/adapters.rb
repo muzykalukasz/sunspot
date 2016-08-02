@@ -69,7 +69,7 @@ module Sunspot #:nodoc:
         # Array:: Collection of ActiveRecord models
         #
         def load_all(ids)
-          @clazz.where(@clazz.primary_key => ids).merge(scope_for_load)
+          @clazz.unscoped.where(@clazz.primary_key => ids).merge(scope_for_load)
         end
         
         private
